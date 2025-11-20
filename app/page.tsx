@@ -1,65 +1,129 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="container">
+      <div className="row">
+        {/* Sidebar */}
+        <div className="col-3 col-xl-2 d-none d-lg-block">
+          <div className="filter">
+            <div className="filter-title">
+              <h5>Фильтр</h5>
+            </div>
+
+            <div className="filter-price">
+              <div className="filter-price_title">Цена</div>
+
+              <form>
+                <div className="filter-price_range">
+                  <div className="filter-price_input-wrapper">
+                    <label htmlFor="min" className="filter-price_label">
+                      от
+                    </label>
+                    <input id="min" className="filter-price_input" />
+                  </div>
+
+                  <div className="filter-price_input-wrapper">
+                    <label htmlFor="max" className="filter-price_label">
+                      до
+                    </label>
+                    <input id="max" className="filter-price_input" />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div className="filter-check">
+              <label className="filter-check_label">
+                <input
+                  type="checkbox"
+                  className="filter-check_checkbox"
+                  id="discount-checkbox"
+                />
+                <span className="filter-check_checkmark"></span>
+                <span className="filter-check_label-text">Акция</span>
+              </label>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Product list */}
+        <div className="col-12 col-lg-9 col-xl-10">
+          <div className="container">
+            <div className="row no-gutters goods">
+              {/* --- PRODUCT CARDS --- */}
+              {[
+                {
+                  price: "33990 ₽",
+                  title: "Игровая приставка Sony PlayStation 4 Pro",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1033180284.jpg",
+                },
+                {
+                  price: "16499 ₽",
+                  title: "Игровая приставка Sony PlayStation 3 Super Slim",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1027495663.jpg",
+                  sale: true,
+                },
+                {
+                  price: "39990 ₽",
+                  title: "Игровая приставка Xbox One X",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1024358491.jpg",
+                },
+                {
+                  price: "23411 ₽",
+                  title: "Игровая приставка Xbox One S",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1024822131.jpg",
+                  sale: true,
+                },
+                {
+                  price: "24751 ₽",
+                  title: "Игровая приставка Nintendo Switch",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1021386685.jpg",
+                },
+                {
+                  price: "3624 ₽",
+                  title: "Игровая приставка Sega Retro Genesis HD",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1024928305.jpg",
+                  sale: true,
+                },
+                {
+                  price: "1551 ₽",
+                  title: "Игровая приставка Dendy Junior",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1021877092.jpg",
+                  sale: true,
+                },
+                {
+                  price: "10445 ₽",
+                  title: "Игровая приставка Sony PlayStation Classic",
+                  img: "https://cdn1.ozone.ru/multimedia/c400/1025222877.jpg",
+                },
+              ].map((card, i) => (
+                <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={i}>
+                  <div className="card">
+                    {card.sale && <div className="card-sale">🔥Hot Sale🔥</div>}
+
+                    <div className="card-img-wrapper">
+                      <span
+                        className="card-img-top"
+                        style={{
+                          backgroundImage: `url('${card.img}')`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      ></span>
+                    </div>
+
+                    <div className="card-body justify-content-between">
+                      <div className="card-price">{card.price}</div>
+                      <h5 className="card-title">{card.title}</h5>
+                      <button className="btn btn-primary">В корзину</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
+
+      </div>
     </div>
-  );
+  )
 }
