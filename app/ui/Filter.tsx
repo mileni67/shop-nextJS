@@ -1,13 +1,15 @@
 'use client'
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Filter() {
     const [isOpen, setIsOpen] = useState(false)
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
+
+    const catalogRef = useRef<HTMLDivElement | null>(null)
 
     const updateFilter = (value: string) => {
         const params = new URLSearchParams(searchParams)
@@ -19,10 +21,27 @@ export default function Filter() {
         }
 
         router.replace(`${pathname}?${params.toString()}`)
+        setIsOpen(false)
     }
 
+    useEffect(() => {
+        const handleClick = (e: MouseEvent) => {
+            if (isOpen &&
+                catalogRef.current &&
+                !catalogRef.current.contains(e.target as Node)
+            ) {
+                setIsOpen(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClick)
+
+        return () => document.removeEventListener("mousedown", handleClick)
+    }, [isOpen])
+
+
     return (
-        <div className="catalog-button">
+        <div className="catalog-button" ref={catalogRef}>
             <button onClick={() => setIsOpen(!isOpen)}>
                 <span className="catalog-button_burger"></span>
                 <span className="catalog-button_text">Каталог</span>

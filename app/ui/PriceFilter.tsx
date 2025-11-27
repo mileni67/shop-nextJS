@@ -96,7 +96,9 @@ export default function PriceFilter() {
                             updateParams({ sale: newSale });
                         }}
                     />
-                    <span className="filter-check_checkmark"></span>
+                    <span
+                        className={`filter-check_checkmark ${sale ? "checked" : ""}`}
+                    ></span>
                     <span className="filter-check_label-text">Акция</span>
                 </label>
             </div>

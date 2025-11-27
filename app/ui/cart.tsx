@@ -11,7 +11,10 @@ export default function Cart() {
                 <div className="cart-body">
                     <div className="cart-title">Корзина</div>
                     <div className="cart-total">
-                        Общая сумма: <span>0</span> руб
+                        Общая сумма ({cartItems.reduce((sum, item) => sum + item.count, 0)} шт):
+                        <span>
+                            {cartItems.reduce((sum, item) => sum + item.price * item.count, 0)} ₽
+                        </span>
                     </div>
 
                     <div className="cart-wrapper"></div>
@@ -25,7 +28,13 @@ export default function Cart() {
                                 ></span>
                             </div>
                             <div className="card-body justify-content-between">
-                                <div className="card-price">{product.price} ₽ * {product.count} = {product.price * product.count} ₽ </div>
+                                <div className="card-price">
+                                    <span className="price">{product.price} ₽</span>
+                                    <span className="multiply">×</span>
+                                    <span className="count">{product.count}</span>
+                                    <span className="equals">=</span>
+                                    <span className="total">{product.price * product.count} ₽</span>
+                                </div>
                                 <h5 className="card-title">{product.title}</h5>
                                 <button className="btn btn-primary" onClick={() => deleteCartItem(product)}>Удалить</button>
                             </div>
