@@ -7,7 +7,7 @@ The project includes a product catalog, category and price filters, search funct
 
 ## 🚀 Live Demo
 
-[_( Vercel link here once deployed)_](https://shop-next-3na4oa56b-oleksandrs-projects-972251fc.vercel.app)
+[_(Vercel link here once deployed)_](https://shop-next-3na4oa56b-oleksandrs-projects-972251fc.vercel.app)
 
 ---
 
@@ -37,26 +37,26 @@ The project includes a product catalog, category and price filters, search funct
 
 ## 📁 Project Structure
 
+```text
 app/
-├─ ui/ # UI components (filters, header, cart, search)
+├─ ui/        # UI components (filters, header, cart, search)
 ├─ providers/ # React context providers (CartProvider)
-├─ fonts/ # Local font files
-├─ scss/ # Global styles
+├─ fonts/     # Local font files
+├─ scss/      # Global styles
 ├─ layout.tsx # Root layout
-└─ page.tsx # Main page
+└─ page.tsx   # Main page
+```
 
----
-
-## 🧩 Filtering System
+🧩 Filtering System
 
 All filters rely on:
 
-- `useSearchParams()`
-- `router.replace()`
+useSearchParams()
+router.replace()
 
 This allows:
 
-✔ Persistent URL-based filters  
-✔ Shareable URLs  
-✔ No full page reload  
+✔ Persistent URL-based filters
+✔ Shareable URLs
+✔ No full page reload
 ✔ Smooth user experience
