@@ -51,12 +51,12 @@ app/
 
 All filters rely on:
 
-useSearchParams()
-router.replace()
+- useSearchParams()
+- router.replace()
 
 This allows:
 
-✔ Persistent URL-based filters
-✔ Shareable URLs
-✔ No full page reload
-✔ Smooth user experience
+- ✔ Persistent URL-based filters
+- ✔ Shareable URLs
+- ✔ No full page reload
+- ✔ Smooth user experience
