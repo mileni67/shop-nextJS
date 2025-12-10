@@ -579,3 +579,22 @@ nav {
 .card-price .equals {
 	opacity: 0.6;
 }
+
+.cart-message {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background-color: #4caf50;
+	color: white;
+	padding: 12px 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	font-weight: 500;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cart-message.hide {
+	opacity: 0;
+	transform: translateY(-20px);
+}
