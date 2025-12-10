@@ -8,8 +8,9 @@ export default function Search() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
 
-    const [search, updateSearch] = useState('')
+    const [search, setSearch] = useState('')
 
+    // Функція для оновлення URL з пошуком
     const updateFilter = (value: string) => {
         const params = new URLSearchParams(searchParams)
 
@@ -22,22 +23,31 @@ export default function Search() {
         router.replace(`${pathname}?${params.toString()}`)
     }
 
+    // При монтуванні компонента зчитуємо параметр з URL
     useEffect(() => {
         const params = new URLSearchParams(searchParams)
         const searchParam = params.get('search') ?? ''
-        updateSearch(searchParam)
+        setSearch(searchParam)
     }, [])
 
     return (
         <div className="search">
-            <div className="search-wrapper">
+            <form
+                className="search-wrapper"
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    updateFilter(search)
+                }}
+            >
                 <input
                     className="search-wrapper_input"
                     type="text"
                     value={search}
-                    onChange={(event) => updateSearch(event.target.value)}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Пошук..."
                 />
-            </div>
+            </form>
+
             <div className="search-btn">
                 <button onClick={() => updateFilter(search)}></button>
             </div>

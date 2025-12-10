@@ -1,13 +1,21 @@
-'use client'
+'use client';
 
 import { useCart } from "../providers/CartProvider";
 
 export default function CartButton() {
-    const { setIsOpen } = useCart()
+    const { cartItems, setIsOpen } = useCart();
+    const totalCount = cartItems.reduce((sum, item) => sum + item.count, 0);
 
     return (
-        <a href="#" id="cart" onClick={(e) => { e.preventDefault(); setIsOpen(true) }}>
-            <span className="counter">0</span>
+        <a
+            href="#"
+            id="cart"
+            onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(true);
+            }}
+        >
+            <span className="counter">{totalCount}</span>
             <span className="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
@@ -19,5 +27,5 @@ export default function CartButton() {
             </span>
             <span className="desc">Корзина</span>
         </a>
-    )
+    );
 }
